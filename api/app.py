@@ -4,7 +4,7 @@ from get_specific_quest import get_specific_quest
 from get_all_monsters import get_all_monsters
 from get_specific_monster import get_specific_monster
 
-app = Flask('osrs_api')
+app = Flask('__name__')
 
 @app.route("/")
 def home():
@@ -25,3 +25,6 @@ def get_all_monsters_endpoint():
 @app.route("/monsters/<monster_id>", methods=['GET'])
 def get_specific_monster_endpoint(monster_id):
     return get_specific_monster(monster_id)
+
+if __name__ == '__main__':
+    app.run()
