@@ -6,6 +6,10 @@ from get_specific_monster import get_specific_monster
 
 app = Flask('osrs_api')
 
+@app.route("/")
+def home():
+    return "Flask Vercel Example - Hello World", 200
+
 @app.route("/quests/", methods=['GET'])
 def get_all_quests_endpoint():
     return get_all_quests()
