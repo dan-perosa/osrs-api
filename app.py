@@ -3,8 +3,10 @@ from get_all_quests import get_all_quests
 from get_specific_quest import get_specific_quest
 from get_all_monsters import get_all_monsters
 from get_specific_monster import get_specific_monster
+from flask_cors import CORS
 
-app = Flask('__name__')
+app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route("/")
 def home():
