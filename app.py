@@ -6,7 +6,15 @@ from get_specific_monster import get_specific_monster
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, allow_headers='http://127.0.0.1:3000')
+
+@app.after_request
+def add_cors_headers(response):
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS, PUT, DELETE"
+    response.headers["Access-Control-Allow-Headers"] = "Accept, Content-Type, Origin"
+    response.headers["Access-Control-Allow-Credentials"] = "true"
+    return response
 
 @app.route("/")
 def home():
