@@ -22,6 +22,13 @@ class Monster(Base):
     autoload_with=engine,
     )
     
+class Equipment(Base):
+    __table__ = Table(
+    "equipments",
+    Base.metadata,
+    autoload_with=engine,
+    )
+    
 # quests = Table(
 #     'quests',
 #     metadata_obj,

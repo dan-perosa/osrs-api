@@ -3,6 +3,8 @@ from get_all_quests import get_all_quests
 from get_specific_quest import get_specific_quest
 from get_all_monsters import get_all_monsters
 from get_specific_monster import get_specific_monster
+from get_all_equipments import get_all_equipments
+from get_specific_equipment import get_specific_equipment
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -35,6 +37,14 @@ def get_all_monsters_endpoint():
 @app.route("/monsters/<monster_id>", methods=['GET'])
 def get_specific_monster_endpoint(monster_id):
     return get_specific_monster(monster_id)
+
+@app.route("/equipments/", methods=['GET'])
+def get_all_equipments_endpoint():
+    return get_all_equipments()
+
+@app.route("/equipments/<equipment_id>", methods=['GET'])
+def get_specific_equipment_endpoint(equipment_id):
+    return get_specific_equipment(equipment_id)
 
 if __name__ == '__main__':
     app.run()
