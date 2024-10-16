@@ -1,55 +1,20 @@
 from flask import Flask, jsonify
-from get_all_quests import get_all_quests
-from get_specific_quest import get_specific_quest
-from get_all_monsters import get_all_monsters
-from get_specific_monster import get_specific_monster
-from get_all_equipments import get_all_equipments
-from get_specific_equipment import get_specific_equipment
-from found_daily_quest import found_daily_quest
-from found_daily_monster import found_daily_monster
-from found_daily_equipment import found_daily_equipment
+from get_all_endpoints.get_all_quests import get_all_quests
+from get_specific_endpoints.get_specific_quest import get_specific_quest
+from get_all_endpoints.get_all_monsters import get_all_monsters
+from get_specific_endpoints.get_specific_monster import get_specific_monster
+from get_all_endpoints.get_all_equipments import get_all_equipments
+from get_specific_endpoints.get_specific_equipment import get_specific_equipment
+from get_all_endpoints.get_all_head_equipment import get_all_head_equipment
+from get_all_endpoints.get_all_cape_equipment import get_all_cape_equipment
+from get_all_endpoints.get_all_neck_equipment import get_all_neck_equipment
+from get_all_endpoints.get_all_ammunition_equipment import get_all_ammunition_equipment
+from scheduler_functions.scheduler import scheduler
+import scheduler_functions.scheduler as sc
 from flask_cors import CORS
-from apscheduler.schedulers.background import BackgroundScheduler
-from apscheduler.triggers.cron import CronTrigger
-from apscheduler.triggers.interval import IntervalTrigger
-from datetime import datetime, timedelta
-import random
-import time
 
 app = Flask(__name__)
 CORS(app, allow_headers='http://127.0.0.1:3000')
-
-scheduler = BackgroundScheduler()
-
-def get_daily_quest():
-    global daily_quest
-    daily_quest = found_daily_quest()
-    print(daily_quest)
-    
-scheduler.add_job(
-    func=get_daily_quest,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(minutes=4, seconds=55)) , minutes=5),
-)
-
-def get_daily_monster():
-    global daily_monster
-    daily_monster = found_daily_monster()
-    print(daily_monster)
-    
-scheduler.add_job(
-    func=get_daily_monster,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(minutes=4, seconds=55)) , minutes=5),
-)
-
-def get_daily_equipment():
-    global daily_equipment
-    daily_equipment = found_daily_equipment()
-    print(daily_equipment)
-    
-scheduler.add_job(
-    func=get_daily_equipment,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(minutes=4, seconds=55)) , minutes=5),
-)
 
 scheduler.start()
 
@@ -81,6 +46,8 @@ def get_all_monsters_endpoint():
 def get_specific_monster_endpoint(monster_id):
     return get_specific_monster(monster_id)
 
+# equipments
+
 @app.route("/equipments/", methods=['GET'])
 def get_all_equipments_endpoint():
     return get_all_equipments()
@@ -89,17 +56,51 @@ def get_all_equipments_endpoint():
 def get_specific_equipment_endpoint(equipment_id):
     return get_specific_equipment(equipment_id)
 
+@app.route("/equipments/head", methods=['GET'])
+def get_all_head_equipment_endpoint():
+    return get_all_head_equipment()
+
+@app.route("/equipments/cape", methods=['GET'])
+def get_all_cape_equipment_endpoint():
+    return get_all_cape_equipment()
+
+@app.route("/equipments/neck", methods=['GET'])
+def get_all_neck_equipment_endpoint():
+    return get_all_neck_equipment()
+
+@app.route("/equipments/ammunition", methods=['GET'])
+def get_all_ammunition_equipment_endpoint():
+    return get_all_ammunition_equipment()
+
+# dailies
+
 @app.route("/daily_quest/", methods=['GET'])
 def get_daily_quest_endpoint():
-    return jsonify(daily_quest)
+    return jsonify(sc.daily_quest)
 
 @app.route("/daily_monster/", methods=['GET'])
 def get_daily_monster_endpoint():
-    return jsonify(daily_monster)
+    return jsonify(sc.daily_monster)
 
 @app.route("/daily_equipment/", methods=['GET'])
 def get_daily_equipment_endpoint():
-    return jsonify(daily_equipment)
+    return jsonify(sc.daily_equipment)
+
+@app.route("/daily_head_equipment/", methods=['GET'])
+def get_daily_head_equipment_endpoint():
+    return jsonify(sc.daily_head_equipment)
+
+@app.route("/daily_cape_equipment/", methods=['GET'])
+def get_daily_cape_equipment_endpoint():
+    return jsonify(sc.daily_cape_equipment)
+
+@app.route("/daily_neck_equipment/", methods=['GET'])
+def get_daily_neck_equipment_endpoint():
+    return jsonify(sc.daily_neck_equipment)
+
+@app.route("/daily_ammunition_equipment/", methods=['GET'])
+def get_daily_ammunition_equipment_endpoint():
+    return jsonify(sc.daily_ammunition_equipment)
 
 if __name__ == '__main__':
     app.run()

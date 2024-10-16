@@ -3,20 +3,12 @@ from models import Equipment
 from sqlalchemy import select
 from flask import jsonify
 
-def take_comma_and_transform(result):
-    to_return = result
-    if ',' in result:
-        to_return = result.replace(',', '')
-    
-    return int(to_return)
-        
-
-def get_all_equipments():
-    q = select(Equipment)
+def get_specific_equipment(equipment_id):
+    q = select(Equipment).where(Equipment.id == equipment_id)
     results = session.execute(q).scalars().all()
-    equipments = []
+
     for result in results:
-        equipments.append({
+        equipment = ({
             'id': result.id,
             'image': result.image,
             'equipment_name': result.equipment_name,
@@ -37,5 +29,6 @@ def get_all_equipments():
             'prayer': result.prayer,
             'weight': result.weigth,
             'speed': result.speed,
+            'slot': result.slot
         })
-    return jsonify(equipments)
+    return jsonify(equipment)
