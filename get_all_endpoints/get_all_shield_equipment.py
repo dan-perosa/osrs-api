@@ -1,8 +1,7 @@
 from db_conn import session
 from models import Equipment
 from sqlalchemy import select
-from sqlalchemy.sql.expression import func
-import random
+from flask import jsonify
 
 def filter_hashtag_and_count(complete_list):
     filtered_complete_list = []
@@ -19,10 +18,8 @@ def filter_hashtag_and_count(complete_list):
         filtered_complete_list.append(item)
     return filtered_complete_list
 
-def found_daily_head_equipment():
-    # q = select(Equipment).where(Equipment.slot == 'Head')
-    # head_equipment_list_length = len(session.execute(q).scalars().all())
-    q = select(Equipment).where(Equipment.slot == 'Head')
+def get_all_shield_equipment():
+    q = select(Equipment).where(Equipment.slot == 'Shield')
     results = session.execute(q).scalars().all()
     equipments = []
 
@@ -50,6 +47,4 @@ def found_daily_head_equipment():
         })
     
     filtered_equipments = filter_hashtag_and_count(equipments)
-    random_equipment_number = random.randint(1, len(filtered_equipments))
-    equipment = filtered_equipments[random_equipment_number]
-    return equipment
+    return jsonify(filtered_equipments)

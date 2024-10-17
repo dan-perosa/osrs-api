@@ -3,6 +3,24 @@ from models import Equipment
 from sqlalchemy import select
 from flask import jsonify
 
+def filter_hashtag_and_count(complete_list):
+    filtered_complete_list = []
+    has_hashtag_list = []
+    for item in complete_list:
+        if '#' in item['equipment_name']:
+            print('achei o item: ', item['equipment_name'])
+            if item['equipment_name'].split('#')[0] in has_hashtag_list:
+                print('item ignorado: ', item['equipment_name'])
+                continue
+            else:
+                print('item adicionado e colocado na lista: ', item['equipment_name'])
+                has_hashtag_list.append(item['equipment_name'].split('#')[0])
+                item['equipment_name'] = item['equipment_name'].split('#')[0]
+                filtered_complete_list.append(item)
+                continue
+        filtered_complete_list.append(item)
+    return filtered_complete_list
+
 def get_all_ammunition_equipment():
     q = select(Equipment).where(Equipment.slot == 'Ammunition')
     results = session.execute(q).scalars().all()
@@ -30,4 +48,6 @@ def get_all_ammunition_equipment():
             'prayer': int(result.prayer),
             'weight': float(result.weigth),
         })
-    return jsonify(equipments)
+    
+    filtered_equipments = filter_hashtag_and_count(equipments)
+    return jsonify(filtered_equipments)

@@ -19,10 +19,10 @@ def filter_hashtag_and_count(complete_list):
         filtered_complete_list.append(item)
     return filtered_complete_list
 
-def found_daily_head_equipment():
-    # q = select(Equipment).where(Equipment.slot == 'Head')
-    # head_equipment_list_length = len(session.execute(q).scalars().all())
-    q = select(Equipment).where(Equipment.slot == 'Head')
+def found_daily_shield_equipment():
+    # q = select(Equipment).where(Equipment.slot == 'Shield')
+    # shield_equipment_list_length = len(session.execute(q).scalars().all())
+    q = select(Equipment).where(Equipment.slot == 'Shield')
     results = session.execute(q).scalars().all()
     equipments = []
 

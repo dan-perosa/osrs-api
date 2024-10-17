@@ -9,6 +9,21 @@ def take_comma_and_transform(result):
         to_return = result.replace(',', '')
     
     return int(to_return)
+
+def filter_hashtag_and_count(complete_list):
+    filtered_complete_list = []
+    has_hashtag_list = []
+    for item in complete_list:
+        if '#' in item['equipment_name']:
+            if item['equipment_name'].split('#')[0] in has_hashtag_list:
+                continue
+            else:
+                has_hashtag_list.append(item['equipment_name'].split('#')[0])
+                item['equipment_name'] = item['equipment_name'].split('#')[0]
+                filtered_complete_list.append(item)
+                continue
+        filtered_complete_list.append(item)
+    return filtered_complete_list
         
 
 def get_all_equipments():
@@ -39,4 +54,6 @@ def get_all_equipments():
             'speed': result.speed,
             'slot': result.slot
         })
-    return jsonify(equipments)
+    
+    filtered_equipments = filter_hashtag_and_count(equipments)
+    return jsonify(filtered_equipments)

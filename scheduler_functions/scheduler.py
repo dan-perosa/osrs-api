@@ -9,6 +9,8 @@ from found_daily_endpoints.found_daily_head_equipment import found_daily_head_eq
 from found_daily_endpoints.found_daily_cape_equipment import found_daily_cape_equipment
 from found_daily_endpoints.found_daily_neck_equipment import found_daily_neck_equipment
 from found_daily_endpoints.found_daily_ammunition_equipment import found_daily_ammunition_equipment
+from found_daily_endpoints.found_daily_weapon_equipment import found_daily_weapon_equipment
+from found_daily_endpoints.found_daily_shield_equipment import found_daily_shield_equipment
 
 
 scheduler = BackgroundScheduler()
@@ -66,5 +68,21 @@ def get_daily_ammunition_equipment():
     daily_ammunition_equipment = found_daily_ammunition_equipment()
 scheduler.add_job(
     func=get_daily_ammunition_equipment,
+    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(minutes=4, seconds=55)) , minutes=5),
+)
+
+def get_daily_weapon_equipment():
+    global daily_weapon_equipment
+    daily_weapon_equipment = found_daily_weapon_equipment()
+scheduler.add_job(
+    func=get_daily_weapon_equipment,
+    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(minutes=4, seconds=55)) , minutes=5),
+)
+
+def get_daily_shield_equipment():
+    global daily_shield_equipment
+    daily_shield_equipment = found_daily_shield_equipment()
+scheduler.add_job(
+    func=get_daily_shield_equipment,
     trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(minutes=4, seconds=55)) , minutes=5),
 )

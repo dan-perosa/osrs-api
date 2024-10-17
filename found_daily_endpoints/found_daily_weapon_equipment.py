@@ -4,6 +4,11 @@ from sqlalchemy import select
 from sqlalchemy.sql.expression import func
 import random
 
+def check_speed(weapon_speed):
+    if weapon_speed == 'N/A':
+        return 'N/A'
+    return int(weapon_speed)
+
 def filter_hashtag_and_count(complete_list):
     filtered_complete_list = []
     has_hashtag_list = []
@@ -19,10 +24,10 @@ def filter_hashtag_and_count(complete_list):
         filtered_complete_list.append(item)
     return filtered_complete_list
 
-def found_daily_head_equipment():
-    # q = select(Equipment).where(Equipment.slot == 'Head')
-    # head_equipment_list_length = len(session.execute(q).scalars().all())
-    q = select(Equipment).where(Equipment.slot == 'Head')
+def found_daily_weapon_equipment():
+    # q = select(Equipment).where(Equipment.slot == 'Weapon')
+    # weapon_equipment_list_length = len(session.execute(q).scalars().all())
+    q = select(Equipment).where(Equipment.slot == 'Weapon')
     results = session.execute(q).scalars().all()
     equipments = []
 
@@ -47,6 +52,7 @@ def found_daily_head_equipment():
             'magic_damage': result.magic_damage,
             'prayer': int(result.prayer),
             'weight': float(result.weigth),
+            'speed': check_speed(result.speed),
         })
     
     filtered_equipments = filter_hashtag_and_count(equipments)
