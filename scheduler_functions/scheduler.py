@@ -16,6 +16,7 @@ from found_daily_endpoints.found_daily_body_equipment import found_daily_body_eq
 from found_daily_endpoints.found_daily_legs_equipment import found_daily_legs_equipment
 from found_daily_endpoints.found_daily_hands_equipment import found_daily_hands_equipment
 from found_daily_endpoints.found_daily_feet_equipment import found_daily_feet_equipment
+from found_daily_endpoints.found_daily_ring_equipment import found_daily_ring_equipment
 
 
 scheduler = BackgroundScheduler()
@@ -129,5 +130,13 @@ def get_daily_feet_equipment():
     daily_feet_equipment = found_daily_feet_equipment()
 scheduler.add_job(
     func=get_daily_feet_equipment,
+    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(minutes=4, seconds=55)) , minutes=5),
+)
+
+def get_daily_ring_equipment():
+    global daily_ring_equipment
+    daily_ring_equipment = found_daily_ring_equipment()
+scheduler.add_job(
+    func=get_daily_ring_equipment,
     trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(minutes=4, seconds=55)) , minutes=5),
 )
