@@ -18,8 +18,8 @@ def filter_hashtag_and_count(complete_list):
         filtered_complete_list.append(item)
     return filtered_complete_list
 
-def get_all_ammunition_equipment():
-    q = select(Equipment).where(Equipment.slot == 'Ammunition')
+def get_all_two_handed_equipment():
+    q = select(Equipment).where(Equipment.slot == 'Two-handed')
     results = session.execute(q).scalars().all()
     equipments = []
 
