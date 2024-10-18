@@ -13,6 +13,7 @@ from get_all_endpoints.get_all_weapon_equipment import get_all_weapon_equipment
 from get_all_endpoints.get_all_shield_equipment import get_all_shield_equipment
 from get_all_endpoints.get_all_two_handed_equipment import get_all_two_handed_equipment
 from get_all_endpoints.get_all_body_equipment import get_all_body_equipment
+from get_all_endpoints.get_all_legs_equipment import get_all_legs_equipment
 from scheduler_functions.scheduler import scheduler
 import scheduler_functions.scheduler as sc
 from flask_cors import CORS
@@ -92,6 +93,10 @@ def get_all_two_handed_equipment_endpoint():
 def get_all_body_equipment_endpoint():
     return get_all_body_equipment()
 
+@app.route("/equipments/legs", methods=['GET'])
+def get_all_legs_equipment_endpoint():
+    return get_all_legs_equipment()
+
 # dailies
 
 @app.route("/daily_quest/", methods=['GET'])
@@ -137,6 +142,10 @@ def get_daily_two_handed_equipment_endpoint():
 @app.route("/daily_body_equipment/", methods=['GET'])
 def get_daily_body_equipment_endpoint():
     return jsonify(sc.daily_body_equipment)
+
+@app.route("/daily_legs_equipment/", methods=['GET'])
+def get_daily_legs_equipment_endpoint():
+    return jsonify(sc.daily_legs_equipment)
 
 if __name__ == '__main__':
     app.run()
