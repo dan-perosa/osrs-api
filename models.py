@@ -1,9 +1,8 @@
-from sqlalchemy import Table
-from sqlalchemy import MetaData
+from sqlalchemy import Table, String, Column, Integer, DateTime
 from db_conn import engine
 from sqlalchemy.orm import DeclarativeBase
-import typing
-import sqlalchemy as sa
+import datetime
+
 
 class Base(DeclarativeBase):
     pass
@@ -29,8 +28,14 @@ class Equipment(Base):
     autoload_with=engine,
     )
     
-# quests = Table(
-#     'quests',
-#     metadata_obj,
-#     autoload_with=engine
-# )
+class User(Base):
+    __table__ = Table(
+    "users",
+    Base.metadata,
+    autoload_with=engine,
+    )
+    
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+

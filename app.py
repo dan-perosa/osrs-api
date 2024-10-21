@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from get_all_endpoints.get_all_quests import get_all_quests
 from get_specific_endpoints.get_specific_quest import get_specific_quest
 from get_all_endpoints.get_all_monsters import get_all_monsters
@@ -17,6 +17,9 @@ from get_all_endpoints.get_all_legs_equipment import get_all_legs_equipment
 from get_all_endpoints.get_all_hands_equipment import get_all_hands_equipment
 from get_all_endpoints.get_all_feet_equipment import get_all_feet_equipment
 from get_all_endpoints.get_all_ring_equipment import get_all_ring_equipment
+from user_endpoints.create_account import create_account
+from user_endpoints.login import login
+from user_endpoints.change_password import change_password
 from scheduler_functions.scheduler import scheduler
 import scheduler_functions.scheduler as sc
 from flask_cors import CORS
@@ -173,6 +176,23 @@ def get_daily_feet_equipment_endpoint():
 @app.route("/daily_ring_equipment/", methods=['GET'])
 def get_daily_ring_equipment_endpoint():
     return jsonify(sc.daily_ring_equipment)
+
+# user
+
+@app.route("/user/create/", methods=['POST'])
+def create_account_endpoint():
+    user_info = request.get_json()
+    return create_account(user_info)
+
+@app.route("/user/login/", methods=['POST'])
+def login_endpoint():
+    user_info = request.get_json()
+    return login(user_info)
+
+@app.route("/user/change_password/", methods=['POST'])
+def change_password_endpoint():
+    user_info = request.get_json()
+    return change_password(user_info)
 
 if __name__ == '__main__':
     app.run()
