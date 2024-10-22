@@ -20,6 +20,7 @@ from get_all_endpoints.get_all_ring_equipment import get_all_ring_equipment
 from user_endpoints.create_account import create_account
 from user_endpoints.login import login
 from user_endpoints.change_password import change_password
+from user_endpoints.logout import logout
 from scheduler_functions.scheduler import scheduler
 import scheduler_functions.scheduler as sc
 from flask_cors import CORS
@@ -32,8 +33,8 @@ scheduler.start()
 @app.after_request
 def add_cors_headers(response):
     response.headers["Access-Control-Allow-Origin"] = "*"
-    response.headers["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS, PUT, DELETE"
-    response.headers["Access-Control-Allow-Headers"] = "Accept, Content-Type, Origin"
+    response.headers["Access-Control-Allow-Methods"] = "*"
+    response.headers["Access-Control-Allow-Headers"] = "*"
     response.headers["Access-Control-Allow-Credentials"] = "true"
     return response
 
@@ -193,6 +194,11 @@ def login_endpoint():
 def change_password_endpoint():
     user_info = request.get_json()
     return change_password(user_info)
+
+@app.route("/user/logout/", methods=['POST'])
+def logout_endpoint():
+    user_info = request.get_json()
+    return logout(user_info)
 
 if __name__ == '__main__':
     app.run()

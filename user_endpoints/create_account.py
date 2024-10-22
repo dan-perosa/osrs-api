@@ -14,18 +14,18 @@ def create_account(user_info):
     results = session.execute(q).scalars().all()
     
     if len(results) > 0:
-        return jsonify({'message': 'username already registered'})
+        return jsonify({'message': 'Username already registered'})
     if len(username) > 20:
-        return jsonify({'message': 'username needs to be shorter than 20 characters'})
+        return jsonify({'message': 'Username needs to be shorter than 20 characters'})
     if len(password) > 30:
-        return jsonify({'message': 'password needs to be shorter than 30 characters'})
+        return jsonify({'message': 'Password needs to be shorter than 30 characters'})
 
     user = User(username=username, password=hashed_password)
     
     try:
         session.add(user)
         session.commit()
-        return jsonify({'message': 'user created'})
+        return jsonify({'message': 'created'})
     except:
         return jsonify({'message': 'unable to create'})
     
