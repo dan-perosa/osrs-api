@@ -21,6 +21,7 @@ from user_endpoints.create_account import create_account
 from user_endpoints.login import login
 from user_endpoints.change_password import change_password
 from user_endpoints.logout import logout
+from user_endpoints.get_highscores import get_highscores
 from scheduler_functions.scheduler import scheduler
 import scheduler_functions.scheduler as sc
 from flask_cors import CORS
@@ -199,6 +200,10 @@ def change_password_endpoint():
 def logout_endpoint():
     user_info = request.get_json()
     return logout(user_info)
+
+@app.route("/user/get_highscores/", methods=['GET'])
+def get_highscores_endpoint():
+    return get_highscores()
 
 if __name__ == '__main__':
     app.run()
