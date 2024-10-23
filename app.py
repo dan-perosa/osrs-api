@@ -22,6 +22,7 @@ from user_endpoints.login import login
 from user_endpoints.change_password import change_password
 from user_endpoints.logout import logout
 from user_endpoints.get_highscores import get_highscores
+from user_endpoints.sum_score import sum_score
 from scheduler_functions.scheduler import scheduler
 import scheduler_functions.scheduler as sc
 from flask_cors import CORS
@@ -204,6 +205,11 @@ def logout_endpoint():
 @app.route("/user/get_highscores/", methods=['GET'])
 def get_highscores_endpoint():
     return get_highscores()
+
+@app.route("/user/sum_score/", methods=['POST'])
+def sum_score_endpoint():
+    user_info = request.get_json()
+    return sum_score(user_info)
 
 if __name__ == '__main__':
     app.run()

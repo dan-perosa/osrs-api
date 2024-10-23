@@ -12,7 +12,7 @@ def get_highscores():
     for result in results:
         highscores.append({
             'user': result.username,
-            'score': 0 if result.score==0 else result.score,
+            'score': 0 if result.score==None else result.score,
         })
      
     return jsonify(highscores)
