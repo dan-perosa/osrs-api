@@ -17,6 +17,7 @@ from found_daily_endpoints.found_daily_legs_equipment import found_daily_legs_eq
 from found_daily_endpoints.found_daily_hands_equipment import found_daily_hands_equipment
 from found_daily_endpoints.found_daily_feet_equipment import found_daily_feet_equipment
 from found_daily_endpoints.found_daily_ring_equipment import found_daily_ring_equipment
+from user_endpoints.daily_value_reseter import daily_value_reseter
 
 
 scheduler = BackgroundScheduler()
@@ -138,5 +139,12 @@ def get_daily_ring_equipment():
     daily_ring_equipment = found_daily_ring_equipment()
 scheduler.add_job(
     func=get_daily_ring_equipment,
+    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(minutes=4, seconds=55)) , minutes=5),
+)
+
+def reset_daily_values():
+    daily_value_reseter()
+scheduler.add_job(
+    func=reset_daily_values,
     trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(minutes=4, seconds=55)) , minutes=5),
 )

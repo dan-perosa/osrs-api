@@ -9,10 +9,8 @@ import pprint
 
 jwt_key = 'secret'
 
-def sum_score(user_info):
-    score = user_info['score']
+def check_existing_victory(user_info):
     token = user_info['token']
-    present_minigame_selected_list = user_info['list']
     minigame = user_info['minigame']
     username = jwt.decode(token, jwt_key, algorithms='HS256')['user']
     
@@ -21,25 +19,17 @@ def sum_score(user_info):
     if len(results) == 0:
         return jsonify({'message': 'Username not found'})
     
-    previous_score = results[0].score
-    new_score = previous_score + score
-    
     q = select(User).where(User.username == username)
     results = session.execute(q).scalars().all()
     list_of_completed_minigames = results[0].finished_info
+    print(list_of_completed_minigames)
     dict_list_of_completed_minigames = json.loads(list_of_completed_minigames)
-    dict_list_of_completed_minigames[minigame] = {
-        'finished': datetime.datetime.now(),
-        'selected': present_minigame_selected_list
-    }
-    dumped_dict_to_return = json.dumps(dict_list_of_completed_minigames, default=str)
-    
-    
-    q = update(User).where(User.username == username).values(score=new_score, finished_info=dumped_dict_to_return)
-    session.execute(q)
-    session.commit()
+    print(dict_list_of_completed_minigames)
+    selected_list = ''
+    if dict_list_of_completed_minigames[minigame]['selected'] != None:
+        selected_list = dict_list_of_completed_minigames[minigame]['selected']
 
-    return jsonify({'message': 'points_updated'})
+    return {'selected_list': selected_list}
 
 
     

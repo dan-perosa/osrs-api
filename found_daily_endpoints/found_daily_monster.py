@@ -30,6 +30,7 @@ def found_daily_monster():
             'magic_level': take_comma_and_transform(result.magic_level),
             'ranged_level': take_comma_and_transform(result.ranged_level),
             'stab_defence': take_comma_and_transform(result.stab_defence),
+            'slash_defence': take_comma_and_transform(result.stab_defence),
             'crush_defence': take_comma_and_transform(result.crush_defence),
             'magic_defence': take_comma_and_transform(result.magic_defence),
             'light_ranged_defence': take_comma_and_transform(result.light_ranged_defence),

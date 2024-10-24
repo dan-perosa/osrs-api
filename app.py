@@ -23,6 +23,7 @@ from user_endpoints.change_password import change_password
 from user_endpoints.logout import logout
 from user_endpoints.get_highscores import get_highscores
 from user_endpoints.sum_score import sum_score
+from user_endpoints.check_existing_victory import check_existing_victory
 from scheduler_functions.scheduler import scheduler
 import scheduler_functions.scheduler as sc
 from flask_cors import CORS
@@ -210,6 +211,11 @@ def get_highscores_endpoint():
 def sum_score_endpoint():
     user_info = request.get_json()
     return sum_score(user_info)
+
+@app.route("/user/check_existing_victory/", methods=['POST'])
+def check_existing_victory_endpoint():
+    user_info = request.get_json()
+    return check_existing_victory(user_info)
 
 if __name__ == '__main__':
     app.run()
