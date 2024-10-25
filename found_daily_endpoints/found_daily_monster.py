@@ -1,4 +1,4 @@
-from db_conn import session
+from db_conn import scoped_session_to_use
 from models import Monster
 from sqlalchemy import select
 import random
@@ -12,10 +12,10 @@ def take_comma_and_transform(result):
 
 def found_daily_monster():
     q = select(Monster)
-    monster_list_length = len(session.execute(q).scalars().all())
+    monster_list_length = len(scoped_session_to_use.execute(q).scalars().all())
     random_monster_number = random.randint(1, monster_list_length)
     q = select(Monster).where(Monster.id == random_monster_number)
-    results = session.execute(q).scalars().all()
+    results = scoped_session_to_use.execute(q).scalars().all()
 
     for result in results:
         monster = ({
@@ -37,4 +37,5 @@ def found_daily_monster():
             'standard_ranged_defence': take_comma_and_transform(result.standard_ranged_defence),
             'heavy_ranged_defence': take_comma_and_transform(result.heavy_ranged_defence),
         })
+    scoped_session_to_use.close()
     return monster

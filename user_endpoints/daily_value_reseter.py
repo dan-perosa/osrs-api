@@ -1,4 +1,4 @@
-from db_conn import session
+from db_conn import scoped_session_to_use
 from models import User
 from sqlalchemy import update
 
@@ -8,8 +8,9 @@ daily_default = '{"quests":{"finished":"","selected":""},"monsters":{"finished":
 def daily_value_reseter():
 
     q = update(User).values(finished_info=daily_default)
-    session.execute(q)
-    session.commit()
+    scoped_session_to_use.execute(q)
+    scoped_session_to_use.commit()
+    scoped_session_to_use.close()
 
     return {'message': 'values reseted'}
 

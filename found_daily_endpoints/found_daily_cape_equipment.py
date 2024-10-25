@@ -1,4 +1,4 @@
-from db_conn import session
+from db_conn import scoped_session_to_use
 from models import Equipment
 from sqlalchemy import select
 from sqlalchemy.sql.expression import func
@@ -21,9 +21,9 @@ def filter_hashtag_and_count(complete_list):
 
 def found_daily_cape_equipment():
     # q = select(Equipment).where(Equipment.slot == 'Cape')
-    # cape_equipment_list_length = len(session.execute(q).scalars().all())
+    # cape_equipment_list_length = len(scoped_session_to_use.execute(q).scalars().all())
     q = select(Equipment).where(Equipment.slot == 'Cape')
-    results = session.execute(q).scalars().all()
+    results = scoped_session_to_use.execute(q).scalars().all()
     equipments = []
 
     for result in results:
@@ -52,4 +52,5 @@ def found_daily_cape_equipment():
     filtered_equipments = filter_hashtag_and_count(equipments)
     random_equipment_number = random.randint(1, len(filtered_equipments))
     equipment = filtered_equipments[random_equipment_number]
+    scoped_session_to_use.close()
     return equipment
