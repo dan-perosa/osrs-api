@@ -1,7 +1,11 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, scoped_session, sessionmaker
+import os
+from dotenv import load_dotenv
 
-engine = create_engine("postgresql://postgres.rrszvwnprphovamfvzrs:Senhasupabase2!@aws-0-us-west-1.pooler.supabase.com:6543/postgres", 
+load_dotenv()
+
+engine = create_engine(os.getenv('CONNECTION_STRING'), 
                         echo=False,
                         pool_size=10,
                         max_overflow=2,
