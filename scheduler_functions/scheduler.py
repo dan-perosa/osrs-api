@@ -27,7 +27,7 @@ def get_daily_quest():
     daily_quest = found_daily_quest()
 scheduler.add_job(
     func=get_daily_quest,
-    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=1)), hours=24, hours=24),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=1)), hours=24),
 )
 
 def get_daily_monster():
