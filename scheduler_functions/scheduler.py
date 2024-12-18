@@ -27,7 +27,7 @@ def get_daily_quest():
     daily_quest = found_daily_quest()
 scheduler.add_job(
     func=get_daily_quest,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(hours=24, seconds=1))),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=1)), hours=24, hours=24),
 )
 
 def get_daily_monster():
@@ -35,7 +35,7 @@ def get_daily_monster():
     daily_monster = found_daily_monster()
 scheduler.add_job(
     func=get_daily_monster,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(hours=24, seconds=2))),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=2)), hours=24),
 )
 
 def get_daily_equipment():
@@ -43,7 +43,7 @@ def get_daily_equipment():
     daily_equipment = found_daily_equipment()
 scheduler.add_job(
     func=get_daily_equipment,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(hours=24, seconds=3))),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=3)), hours=24),
 )
 
 def get_daily_head_equipment():
@@ -51,7 +51,7 @@ def get_daily_head_equipment():
     daily_head_equipment = found_daily_head_equipment()
 scheduler.add_job(
     func=get_daily_head_equipment,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(hours=24, seconds=4))),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=4)), hours=24),
 )
 
 def get_daily_cape_equipment():
@@ -59,7 +59,7 @@ def get_daily_cape_equipment():
     daily_cape_equipment = found_daily_cape_equipment()
 scheduler.add_job(
     func=get_daily_cape_equipment,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(hours=24, seconds=5))),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=5)), hours=24),
 )
 
 def get_daily_neck_equipment():
@@ -67,7 +67,7 @@ def get_daily_neck_equipment():
     daily_neck_equipment = found_daily_neck_equipment()
 scheduler.add_job(
     func=get_daily_neck_equipment,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(hours=24, seconds=6))),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=6)), hours=24),
 )
 
 def get_daily_ammunition_equipment():
@@ -75,7 +75,7 @@ def get_daily_ammunition_equipment():
     daily_ammunition_equipment = found_daily_ammunition_equipment()
 scheduler.add_job(
     func=get_daily_ammunition_equipment,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(hours=24, seconds=7))),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=7)), hours=24),
 )
 
 def get_daily_weapon_equipment():
@@ -83,7 +83,7 @@ def get_daily_weapon_equipment():
     daily_weapon_equipment = found_daily_weapon_equipment()
 scheduler.add_job(
     func=get_daily_weapon_equipment,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(hours=24, seconds=8))),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=8)), hours=24),
 )
 
 def get_daily_shield_equipment():
@@ -91,7 +91,7 @@ def get_daily_shield_equipment():
     daily_shield_equipment = found_daily_shield_equipment()
 scheduler.add_job(
     func=get_daily_shield_equipment,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(hours=24, seconds=9))),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=9)), hours=24),
 )
 
 def get_daily_two_handed_equipment():
@@ -99,7 +99,7 @@ def get_daily_two_handed_equipment():
     daily_two_handed_equipment = found_daily_two_handed_equipment()
 scheduler.add_job(
     func=get_daily_two_handed_equipment,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(hours=24, seconds=10))),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=10)), hours=24),
 )
 
 def get_daily_body_equipment():
@@ -107,7 +107,7 @@ def get_daily_body_equipment():
     daily_body_equipment = found_daily_body_equipment()
 scheduler.add_job(
     func=get_daily_body_equipment,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(hours=24, seconds=11))),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=11)), hours=24),
 )
 
 def get_daily_legs_equipment():
@@ -115,7 +115,7 @@ def get_daily_legs_equipment():
     daily_legs_equipment = found_daily_legs_equipment()
 scheduler.add_job(
     func=get_daily_legs_equipment,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(hours=24, seconds=12))),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=12)), hours=24),
 )
 
 def get_daily_hands_equipment():
@@ -123,7 +123,7 @@ def get_daily_hands_equipment():
     daily_hands_equipment = found_daily_hands_equipment()
 scheduler.add_job(
     func=get_daily_hands_equipment,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(hours=24, seconds=13))),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=13)), hours=24),
 )
 
 def get_daily_feet_equipment():
@@ -131,7 +131,7 @@ def get_daily_feet_equipment():
     daily_feet_equipment = found_daily_feet_equipment()
 scheduler.add_job(
     func=get_daily_feet_equipment,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(hours=24, seconds=14))),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=14)), hours=24),
 )
 
 def get_daily_ring_equipment():
@@ -139,12 +139,12 @@ def get_daily_ring_equipment():
     daily_ring_equipment = found_daily_ring_equipment()
 scheduler.add_job(
     func=get_daily_ring_equipment,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(hours=24, seconds=15))),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=15)), hours=24),
 )
 
 def reset_daily_values():
     daily_value_reseter()
 scheduler.add_job(
     func=reset_daily_values,
-    trigger=IntervalTrigger(start_date=(datetime.now() - timedelta(hours=24, seconds=16))),
+    trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=16)), hours=24),
 )
