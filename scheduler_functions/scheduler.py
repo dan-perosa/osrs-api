@@ -28,6 +28,7 @@ def get_daily_quest():
 scheduler.add_job(
     func=get_daily_quest,
     trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=1)), hours=24),
+    misfire_grace_time=None
 )
 
 def get_daily_monster():
@@ -36,6 +37,7 @@ def get_daily_monster():
 scheduler.add_job(
     func=get_daily_monster,
     trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=2)), hours=24),
+    misfire_grace_time=None
 )
 
 def get_daily_equipment():
@@ -44,6 +46,7 @@ def get_daily_equipment():
 scheduler.add_job(
     func=get_daily_equipment,
     trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=3)), hours=24),
+    misfire_grace_time=None
 )
 
 def get_daily_head_equipment():
@@ -52,6 +55,7 @@ def get_daily_head_equipment():
 scheduler.add_job(
     func=get_daily_head_equipment,
     trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=4)), hours=24),
+    misfire_grace_time=None
 )
 
 def get_daily_cape_equipment():
@@ -60,6 +64,7 @@ def get_daily_cape_equipment():
 scheduler.add_job(
     func=get_daily_cape_equipment,
     trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=5)), hours=24),
+    misfire_grace_time=None
 )
 
 def get_daily_neck_equipment():
@@ -68,6 +73,7 @@ def get_daily_neck_equipment():
 scheduler.add_job(
     func=get_daily_neck_equipment,
     trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=6)), hours=24),
+    misfire_grace_time=None
 )
 
 def get_daily_ammunition_equipment():
@@ -76,6 +82,7 @@ def get_daily_ammunition_equipment():
 scheduler.add_job(
     func=get_daily_ammunition_equipment,
     trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=7)), hours=24),
+    misfire_grace_time=None
 )
 
 def get_daily_weapon_equipment():
@@ -84,6 +91,7 @@ def get_daily_weapon_equipment():
 scheduler.add_job(
     func=get_daily_weapon_equipment,
     trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=8)), hours=24),
+    misfire_grace_time=None
 )
 
 def get_daily_shield_equipment():
@@ -92,6 +100,7 @@ def get_daily_shield_equipment():
 scheduler.add_job(
     func=get_daily_shield_equipment,
     trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=9)), hours=24),
+    misfire_grace_time=None
 )
 
 def get_daily_two_handed_equipment():
@@ -100,6 +109,7 @@ def get_daily_two_handed_equipment():
 scheduler.add_job(
     func=get_daily_two_handed_equipment,
     trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=10)), hours=24),
+    misfire_grace_time=None
 )
 
 def get_daily_body_equipment():
@@ -108,6 +118,7 @@ def get_daily_body_equipment():
 scheduler.add_job(
     func=get_daily_body_equipment,
     trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=11)), hours=24),
+    misfire_grace_time=None
 )
 
 def get_daily_legs_equipment():
@@ -116,6 +127,7 @@ def get_daily_legs_equipment():
 scheduler.add_job(
     func=get_daily_legs_equipment,
     trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=12)), hours=24),
+    misfire_grace_time=None
 )
 
 def get_daily_hands_equipment():
@@ -124,6 +136,7 @@ def get_daily_hands_equipment():
 scheduler.add_job(
     func=get_daily_hands_equipment,
     trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=13)), hours=24),
+    misfire_grace_time=None
 )
 
 def get_daily_feet_equipment():
@@ -132,6 +145,7 @@ def get_daily_feet_equipment():
 scheduler.add_job(
     func=get_daily_feet_equipment,
     trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=14)), hours=24),
+    misfire_grace_time=None
 )
 
 def get_daily_ring_equipment():
@@ -140,6 +154,7 @@ def get_daily_ring_equipment():
 scheduler.add_job(
     func=get_daily_ring_equipment,
     trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=15)), hours=24),
+    misfire_grace_time=None
 )
 
 def reset_daily_values():
@@ -147,4 +162,5 @@ def reset_daily_values():
 scheduler.add_job(
     func=reset_daily_values,
     trigger=IntervalTrigger(start_date=(datetime.now() + timedelta(seconds=16)), hours=24),
+    misfire_grace_time=None
 )
