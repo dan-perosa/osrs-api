@@ -26,8 +26,10 @@ def get_daily_quest():
     daily_quest = found_daily_quest()
 scheduler.add_job(
     func=get_daily_quest,
-    trigger=CronTrigger(start_date=(datetime.now()), hour=0),
-    misfire_grace_time=None
+    misfire_grace_time=None,
+    trigger='cron',
+    hour=0,
+    start_date=datetime.now()
 )
 
 def get_daily_monster():
@@ -35,8 +37,10 @@ def get_daily_monster():
     daily_monster = found_daily_monster()
 scheduler.add_job(
     func=get_daily_monster,
-    trigger=CronTrigger(start_date=(datetime.now()), hour=0),
-    misfire_grace_time=None
+    misfire_grace_time=None,
+    trigger='cron',
+    hour=0,
+    start_date=datetime.now()
 )
 
 def get_daily_equipment():
@@ -44,8 +48,10 @@ def get_daily_equipment():
     daily_equipment = found_daily_equipment()
 scheduler.add_job(
     func=get_daily_equipment,
-    trigger=CronTrigger(start_date=(datetime.now()), hour=0),
-    misfire_grace_time=None
+    misfire_grace_time=None,
+    trigger='cron',
+    hour=0,
+    start_date=datetime.now()
 )
 
 def get_daily_head_equipment():
@@ -53,8 +59,10 @@ def get_daily_head_equipment():
     daily_head_equipment = found_daily_head_equipment()
 scheduler.add_job(
     func=get_daily_head_equipment,
-    trigger=CronTrigger(start_date=(datetime.now()), hour=0),
-    misfire_grace_time=None
+    misfire_grace_time=None,
+    trigger='cron',
+    hour=0,
+    start_date=datetime.now()
 )
 
 def get_daily_cape_equipment():
@@ -62,8 +70,10 @@ def get_daily_cape_equipment():
     daily_cape_equipment = found_daily_cape_equipment()
 scheduler.add_job(
     func=get_daily_cape_equipment,
-    trigger=CronTrigger(start_date=(datetime.now()), hour=0),
-    misfire_grace_time=None
+    misfire_grace_time=None,
+    trigger='cron',
+    hour=0,
+    start_date=datetime.now()
 )
 
 def get_daily_neck_equipment():
@@ -71,8 +81,10 @@ def get_daily_neck_equipment():
     daily_neck_equipment = found_daily_neck_equipment()
 scheduler.add_job(
     func=get_daily_neck_equipment,
-    trigger=CronTrigger(start_date=(datetime.now()), hour=0),
-    misfire_grace_time=None
+    misfire_grace_time=None,
+    trigger='cron',
+    hour=0,
+    start_date=datetime.now()
 )
 
 def get_daily_ammunition_equipment():
@@ -80,8 +92,10 @@ def get_daily_ammunition_equipment():
     daily_ammunition_equipment = found_daily_ammunition_equipment()
 scheduler.add_job(
     func=get_daily_ammunition_equipment,
-    trigger=CronTrigger(start_date=(datetime.now()), hour=0),
-    misfire_grace_time=None
+    misfire_grace_time=None,
+    trigger='cron',
+    hour=0,
+    start_date=datetime.now()
 )
 
 def get_daily_weapon_equipment():
@@ -89,8 +103,10 @@ def get_daily_weapon_equipment():
     daily_weapon_equipment = found_daily_weapon_equipment()
 scheduler.add_job(
     func=get_daily_weapon_equipment,
-    trigger=CronTrigger(start_date=(datetime.now()), hour=0),
-    misfire_grace_time=None
+    misfire_grace_time=None,
+    trigger='cron',
+    hour=0,
+    start_date=datetime.now()
 )
 
 def get_daily_shield_equipment():
@@ -98,8 +114,10 @@ def get_daily_shield_equipment():
     daily_shield_equipment = found_daily_shield_equipment()
 scheduler.add_job(
     func=get_daily_shield_equipment,
-    trigger=CronTrigger(start_date=(datetime.now()), hour=0),
-    misfire_grace_time=None
+    misfire_grace_time=None,
+    trigger='cron',
+    hour=0,
+    start_date=datetime.now()
 )
 
 def get_daily_two_handed_equipment():
@@ -107,8 +125,10 @@ def get_daily_two_handed_equipment():
     daily_two_handed_equipment = found_daily_two_handed_equipment()
 scheduler.add_job(
     func=get_daily_two_handed_equipment,
-    trigger=CronTrigger(start_date=(datetime.now()), hour=0),
-    misfire_grace_time=None
+    misfire_grace_time=None,
+    trigger='cron',
+    hour=0,
+    start_date=datetime.now()
 )
 
 def get_daily_body_equipment():
@@ -116,8 +136,10 @@ def get_daily_body_equipment():
     daily_body_equipment = found_daily_body_equipment()
 scheduler.add_job(
     func=get_daily_body_equipment,
-    trigger=CronTrigger(start_date=(datetime.now()), hour=0),
-    misfire_grace_time=None
+    misfire_grace_time=None,
+    trigger='cron',
+    hour=0,
+    start_date=datetime.now()
 )
 
 def get_daily_legs_equipment():
@@ -125,8 +147,10 @@ def get_daily_legs_equipment():
     daily_legs_equipment = found_daily_legs_equipment()
 scheduler.add_job(
     func=get_daily_legs_equipment,
-    trigger=CronTrigger(start_date=(datetime.now()), hour=0),
-    misfire_grace_time=None
+    misfire_grace_time=None,
+    trigger='cron',
+    hour=0,
+    start_date=datetime.now()
 )
 
 def get_daily_hands_equipment():
@@ -134,8 +158,10 @@ def get_daily_hands_equipment():
     daily_hands_equipment = found_daily_hands_equipment()
 scheduler.add_job(
     func=get_daily_hands_equipment,
-    trigger=CronTrigger(start_date=(datetime.now()), hour=0),
-    misfire_grace_time=None
+    misfire_grace_time=None,
+    trigger='cron',
+    hour=0,
+    start_date=datetime.now()
 )
 
 def get_daily_feet_equipment():
@@ -143,8 +169,10 @@ def get_daily_feet_equipment():
     daily_feet_equipment = found_daily_feet_equipment()
 scheduler.add_job(
     func=get_daily_feet_equipment,
-    trigger=CronTrigger(start_date=(datetime.now()), hour=0),
-    misfire_grace_time=None
+    misfire_grace_time=None,
+    trigger='cron',
+    hour=0,
+    start_date=datetime.now()
 )
 
 def get_daily_ring_equipment():
@@ -152,14 +180,18 @@ def get_daily_ring_equipment():
     daily_ring_equipment = found_daily_ring_equipment()
 scheduler.add_job(
     func=get_daily_ring_equipment,
-    trigger=CronTrigger(start_date=(datetime.now()), hour=0),
-    misfire_grace_time=None
+    misfire_grace_time=None,
+    trigger='cron',
+    hour=0,
+    start_date=datetime.now()
 )
 
 def reset_daily_values():
     daily_value_reseter()
 scheduler.add_job(
     func=reset_daily_values,
-    trigger=CronTrigger(start_date=(datetime.now()), hour=0),
-    misfire_grace_time=None
+    misfire_grace_time=None,
+    trigger='cron',
+    hour=0,
+    start_date=datetime.now()
 )
