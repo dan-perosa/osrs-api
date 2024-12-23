@@ -1,6 +1,5 @@
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
-from apscheduler.triggers.interval import CronTrigger
 from datetime import datetime, timedelta
 from found_daily_endpoints.found_daily_quest import found_daily_quest
 from found_daily_endpoints.found_daily_monster import found_daily_monster
