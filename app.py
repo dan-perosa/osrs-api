@@ -30,7 +30,7 @@ from flask_cors import CORS
 import time
 
 app = Flask(__name__)
-CORS(app, allow_headers=['http://127.0.0.1:3000', 'https://osrs-flask-api.vercel.app/'])
+CORS(app, allow_headers=['http://127.0.0.1:3000', '*'])
 
 scheduler.start()
 
