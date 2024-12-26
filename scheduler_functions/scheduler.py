@@ -20,6 +20,23 @@ from user_endpoints.daily_value_reseter import daily_value_reseter
 
 
 scheduler = BackgroundScheduler()
+daily_quest = found_daily_quest()
+daily_monster = found_daily_monster()
+daily_equipment = found_daily_equipment()
+daily_head_equipment = found_daily_head_equipment()
+daily_cape_equipment = found_daily_cape_equipment()
+daily_neck_equipment = found_daily_neck_equipment()
+daily_ammunition_equipment = found_daily_ammunition_equipment()
+daily_weapon_equipment = found_daily_weapon_equipment()
+daily_shield_equipment = found_daily_shield_equipment()
+daily_two_handed_equipment = found_daily_two_handed_equipment()
+daily_body_equipment = found_daily_body_equipment()
+daily_legs_equipment = found_daily_legs_equipment()
+daily_hands_equipment = found_daily_hands_equipment()
+daily_feet_equipment = found_daily_feet_equipment()
+daily_ring_equipment = found_daily_ring_equipment()
+
+
 
 def get_daily_quest():
     global daily_quest

@@ -33,7 +33,6 @@ app = Flask(__name__)
 CORS(app, allow_headers='http://127.0.0.1:3000')
 
 scheduler.start()
-time.sleep(20)
 
 @app.after_request
 def add_cors_headers(response):
