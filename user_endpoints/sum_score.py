@@ -26,8 +26,8 @@ def sum_score(user_info):
     
     q = select(User).where(User.username == username)
     results = session.execute(q).scalars().all()
-    list_of_completed_minigames = results[0].finished_info
-    dict_list_of_completed_minigames = json.loads(list_of_completed_minigames)
+    list_of_completed_minigames: str = results[0].finished_info
+    dict_list_of_completed_minigames = json.loads(list_of_completed_minigames.replace("'", '').replace('None', 'null'))
     dict_list_of_completed_minigames[minigame] = {
         'finished': datetime.datetime.now(),
         'selected': present_minigame_selected_list
