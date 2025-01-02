@@ -96,7 +96,7 @@ def found_daily_monster():
             'magic_level': monster_to_choose['magic_level'],
             'ranged_level': monster_to_choose['ranged_level'],
             'stab_defence': monster_to_choose['stab_defence'],
-            'slash_defence': monster_to_choose['stab_defence'],
+            'slash_defence': monster_to_choose['slash_defence'],
             'crush_defence': monster_to_choose['crush_defence'],
             'magic_defence': monster_to_choose['magic_defence'],
             'light_ranged_defence': monster_to_choose['light_ranged_defence'],
