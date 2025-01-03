@@ -35,6 +35,7 @@ daily_legs_equipment = found_daily_legs_equipment()
 daily_hands_equipment = found_daily_hands_equipment()
 daily_feet_equipment = found_daily_feet_equipment()
 daily_ring_equipment = found_daily_ring_equipment()
+daily_value_reseter()
 
 
 
