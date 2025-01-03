@@ -24,6 +24,7 @@ from user_endpoints.logout import logout
 from user_endpoints.get_highscores import get_highscores
 from user_endpoints.sum_score import sum_score
 from user_endpoints.check_existing_victory import check_existing_victory
+from user_endpoints.update_user_selected_list import update_user_selected_list
 from scheduler_functions.scheduler import scheduler
 import scheduler_functions.scheduler as sc
 from flask_cors import CORS
@@ -217,6 +218,11 @@ def sum_score_endpoint():
 def check_existing_victory_endpoint():
     user_info = request.get_json()
     return check_existing_victory(user_info)
+
+@app.route("/user/update_user_selected_list/", methods=['POST'])
+def update_user_selected_list_endpoint():
+    user_info = request.get_json()
+    return update_user_selected_list(user_info)
 
 if __name__ == '__main__':
     app.run()
