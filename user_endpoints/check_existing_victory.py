@@ -24,6 +24,7 @@ def check_existing_victory(user_info):
     list_of_completed_minigames: str = results[0].finished_info
     list_of_completed_minigames = list_of_completed_minigames.replace("'", '').replace('None', 'null')
     dict_list_of_completed_minigames = json.loads(list_of_completed_minigames.replace('None', 'null'))
+    print(dict_list_of_completed_minigames)
     selected_list = ''
     if dict_list_of_completed_minigames[minigame]['selected'] != None:
         selected_list = dict_list_of_completed_minigames[minigame]['selected']

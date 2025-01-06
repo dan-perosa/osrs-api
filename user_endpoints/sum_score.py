@@ -15,6 +15,7 @@ def sum_score(user_info):
     present_minigame_selected_list = user_info['list']
     minigame = user_info['minigame']
     username = jwt.decode(token, jwt_key, algorithms='HS256')['user']
+    victory = user_info['victory']
     
     q = select(User).where(User.username == username)
     results = session.execute(q).scalars().all()
@@ -35,7 +36,7 @@ def sum_score(user_info):
     dumped_dict_to_return = json.dumps(dict_list_of_completed_minigames, default=str)
     
     
-    q = update(User).where(User.username == username).values(score=new_score, finished_info=dumped_dict_to_return)
+    q = update(User).where(User.username == username).values(score=new_score, finished_info=dumped_dict_to_return, victory=victory)
     session.execute(q)
     session.commit()
 
