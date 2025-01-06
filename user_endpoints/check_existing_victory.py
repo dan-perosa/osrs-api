@@ -22,6 +22,7 @@ def check_existing_victory(user_info):
     q = select(User).where(User.username == username)
     results = session.execute(q).scalars().all()
     list_of_completed_minigames: str = results[0].finished_info
+    print(list_of_completed_minigames)
     list_of_completed_minigames = list_of_completed_minigames.replace("'", '').replace('None', 'null')
     dict_list_of_completed_minigames = json.loads(list_of_completed_minigames.replace('None', 'null'))
     selected_list = ''
