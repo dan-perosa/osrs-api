@@ -31,12 +31,13 @@ def sum_score(user_info):
     dict_list_of_completed_minigames = json.loads(list_of_completed_minigames.replace("'", '').replace('None', 'null'))
     dict_list_of_completed_minigames[minigame] = {
         'finished': datetime.datetime.now(),
-        'selected': present_minigame_selected_list
+        'selected': present_minigame_selected_list,
+        'victory': victory
     }
     dumped_dict_to_return = json.dumps(dict_list_of_completed_minigames, default=str)
     
     
-    q = update(User).where(User.username == username).values(score=new_score, finished_info=dumped_dict_to_return, victory=victory)
+    q = update(User).where(User.username == username).values(score=new_score, finished_info=dumped_dict_to_return)
     session.execute(q)
     session.commit()
 
