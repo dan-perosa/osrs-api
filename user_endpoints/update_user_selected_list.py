@@ -14,7 +14,6 @@ def update_user_selected_list(user_info):
     selected_list = user_info['selected_list']
     minigame = user_info['minigame']
     username = jwt.decode(token, jwt_key, algorithms='HS256')['user']
-    victory = user_info['victory']
     
     q = select(User).where(User.username == username)
     results = session.execute(q).scalars().all()
@@ -28,7 +27,7 @@ def update_user_selected_list(user_info):
     dict_list_of_completed_minigames[minigame] = {
         'finished': datetime.datetime.now(),
         'selected': selected_list,
-        'victory': victory
+        'victory': False
     }
     dumped_dict_to_return = json.dumps(dict_list_of_completed_minigames, default=str)
     
