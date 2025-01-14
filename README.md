@@ -2,6 +2,8 @@
 
 The **OSRSDle API** is a backend application built using **Python**, **Flask**, **SQLAlchemy**, **APScheduler**, and **PyJWT** for a game called *OSRSDle*. This is a guessing game based on the popular game *Old School RuneScape (OSRS)*. The API interacts with a **PostgreSQL** database hosted on **Supabase**, allowing users to fetch data about items, monsters, quests, and high scores. It also provides user authentication, creation, and management features such as login and logout.
 
+You can check out the frontend of the OSRSDle game on [GitHub](https://github.com/dan-perosa/osrsdle) and access the deployed version of the game on [Vercel](https://osrsdle.vercel.app/).
+
 ## Table of Contents
 
 - [Installation](#installation)
