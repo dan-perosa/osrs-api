@@ -7,6 +7,7 @@ You can check out the frontend of the OSRSDle game on [GitHub](https://github.co
 ## Table of Contents
 
 - [Installation](#installation)
+- [Database](#database)
 - [Technologies](#technologies)
 - [API Endpoints](#api-endpoints)
   - [Equipments](#equipments)
@@ -51,6 +52,20 @@ To get started with the OSRSDle API, follow the steps below:
    flask --app app run
 
 Now the API should be running locally at http://127.0.0.1:5000.
+
+## Database
+
+The current database for **OSRSDle** is hosted on **Supabase**, a backend-as-a-service platform that provides solutions such as databases, authentication, and storage.
+
+100% of the data stored in the database was retrieved directly from the **official Old School RuneScape (OSRS) wiki**. To ensure that the data was accurate and up-to-date, I developed an **automation web scraping script** that extracted the data from the wiki. This script pulled all relevant information about **quests**, **equipments**, and **monsters** directly from the wiki, ensuring that all data included was as detailed and precise as possible for the game.
+
+Through this script, I retrieved the following information:
+
+- **Equipments**: details about each item, including name, ID, and stats.
+- **Monsters**: data on all monsters in the game, such as name, ID, combat level, and other relevant attributes.
+- **Quests**: all quests in the game, including name, ID, quest points, and additional details.
+
+This web scraping process was designed to ensure the database remains synced with the most up-to-date information from the OSRS wiki.
 
 ## Technologies
 
